@@ -1,6 +1,14 @@
 <h1>Post your pet</h1>
 
-<%= form_for @pets do |f| %>
+<% if @pet.errors.any? %>
+<ul>
+  <% @pet.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_for @pet do |f| %>
 <p>
   <%= f.label :name %>
   <%= f.text_field :name %>

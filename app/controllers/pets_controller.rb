@@ -1,13 +1,20 @@
 class PetsController < ApplicationController
   def new
-    @pets = Pet.new
+    @pet = Pet.new
   end
 
   def create
-    #render plain: params[:pet].inspect
-    @pets = Pet.new(pet_params)
-    @pets.save
-    redirect_to pets_show(@pets)
+    @pet = Pet.new(pet_params)
+    if @pet.save
+      flash[:notice] = "Pet was successfully posted"
+      redirect_to pet_path(@pet)
+    else
+      render 'new'
+    end
+  end
+
+  def show
+    @pet = Pet.find(params[:id])
   end
 
   private
