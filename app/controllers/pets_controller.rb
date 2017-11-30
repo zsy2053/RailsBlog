@@ -11,6 +11,7 @@ class PetsController < ApplicationController
 
   def create
     @pet = Pet.new(pet_params)
+    @pet.user = User.first
     if @pet.save
       flash[:success] = "Pet was successfully posted"
       redirect_to pet_path(@pet)
