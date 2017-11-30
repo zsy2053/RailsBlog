@@ -26,14 +26,21 @@ $navbar-default-bg: #323335;
 }
 
 footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: #777
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  padding: 1rem;
+  background-color: #323335;
 }
 
 footer small {
   float: left;
+  color: #fff;
+}
+
+#about {
+  color: #fff;
 }
 
 footer ul {
@@ -44,4 +51,8 @@ footer ul {
 footer ul li {
   float: left;
   margin-left: 15px;
+}
+
+#petdescribe {
+  resize: none;
 }
