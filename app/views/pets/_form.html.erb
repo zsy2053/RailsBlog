@@ -1,11 +1,4 @@
-<% if @pet.errors.any? %>
-<ul>
-  <% @pet.errors.full_messages.each do |msg| %>
-  <li><%= msg %></li>
-  <% end %>
-</ul>
-<% end %>
-
+<%= render 'shared/errors', obj: @pet %>
 <div class='row'>
   <div class='col-xs-10'>
     <%= form_for(@pet, :html => {class: "form-horizontal", role: "form"}) do |f| %>

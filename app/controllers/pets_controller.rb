@@ -12,7 +12,7 @@ class PetsController < ApplicationController
   def create
     @pet = Pet.new(pet_params)
     if @pet.save
-      flash[:notice] = "Pet was successfully posted"
+      flash[:success] = "Pet was successfully posted"
       redirect_to pet_path(@pet)
     else
       render 'new'
@@ -25,7 +25,7 @@ class PetsController < ApplicationController
 
   def destroy
     @pet.destroy
-    flash[:notice] = "Pet was successfully deleted"
+    flash[:danger] = "Pet was successfully deleted"
     redirect_to pets_path
   end
 
@@ -34,7 +34,7 @@ class PetsController < ApplicationController
 
   def update
     if @pet.update(pet_params)
-      flash[:notice] = "Pet was successfully updated"
+      flash[:success] = "Pet was successfully updated"
       redirect_to pet_path(@pet)
     else
       render 'edit'
