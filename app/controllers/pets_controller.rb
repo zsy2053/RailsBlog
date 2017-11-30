@@ -22,6 +22,13 @@ class PetsController < ApplicationController
     @pet = Pet.find(params[:id])
   end
 
+  def destroy
+    @pet = Pet.find(params[:id])
+    @pet.destroy
+    flash[:notice] = "Pet was successfully deleted"
+    redirect_to pets_path
+  end
+
   def edit
     @pet = Pet.find(params[:id])
   end

@@ -14,6 +14,7 @@
     <td><%= pet.description %></td>
     <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
     <td><%= link_to 'Show', pet_path(pet) %></td>
+    <td><%= link_to 'Delete', pet_path(pet), method: :delete, data: {confirm: 'Are you sure to delete this pet information?'} %></td>
   </tr>
   <% end %>
 </table>
