@@ -1,0 +1,19 @@
+<h1>Listing all pets</h1>
+
+<%= link_to "Post your pet", new_pet_path %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+
+  <% @pets.each do |pet| %>
+  <tr>
+    <td><%= pet.name %></td>
+    <td><%= pet.description %></td>
+    <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
+    <td><%= link_to 'Show', pet_path(pet) %></td>
+  </tr>
+  <% end %>
+</table>
