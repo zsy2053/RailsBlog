@@ -1,4 +1,5 @@
 class PetsController < ApplicationController
+  before_action :set_pet, only: [:edit, :update, :show, :destroy]
 
   def index
     @pets = Pet.all
@@ -19,22 +20,19 @@ class PetsController < ApplicationController
   end
 
   def show
-    @pet = Pet.find(params[:id])
+
   end
 
   def destroy
-    @pet = Pet.find(params[:id])
     @pet.destroy
     flash[:notice] = "Pet was successfully deleted"
     redirect_to pets_path
   end
 
   def edit
-    @pet = Pet.find(params[:id])
   end
 
   def update
-    @pet = Pet.find(params[:id])
     if @pet.update(pet_params)
       flash[:notice] = "Pet was successfully updated"
       redirect_to pet_path(@pet)
@@ -44,6 +42,10 @@ class PetsController < ApplicationController
   end
 
   private
+    def set_pet
+      @pet = Pet.find(params[:id])
+    end
+
     def pet_params
       params.require(:pet).permit(:name, :description)
     end
